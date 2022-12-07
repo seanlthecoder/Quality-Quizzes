@@ -1,110 +1,122 @@
 :root {
+  background-color: lightgray;
 
-    background-color: lightgray;
-
-    font-size: 70.3%;
-
- 
-
+  font-size: 70.3%;
 }
 
- 
+body {
+  margin: 0;
+  width: auto;
+}
 
-*{
+.row-full {
+  width: 100vw;
+  position: relative;
+  margin-left: -50vw;
+  height: 100px;
+  margin-top: 100px;
+  left: 50%;
+}
 
-    box-sizing: border-box;
+.beginBtn {
+  margin-bottom: 80px;
+  margin-left: 124px;
+}
 
-    font-family: Arial, Helvetica, sans-serif;
+* {
+  box-sizing: border-box;
 
-    margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
 
-    padding: 0;
+  margin: 0;
 
-    color: #333;
+  padding: 0;
 
- 
-
- }
-
-    
+  color: #333;
+}
 
 h1,
-
 h2,
-
 h3,
-
 h4 {
-
-    margin-bottom: 1rem;
-
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
 }
-
- 
 
 h1 {
+  font-size: 5.4rem;
 
-    font-size: 5.4rem;
+  color: #56a5eb;
 
-    color: #56a5eb;
-
-    margin-bottom: 5rem;
-
+  margin-bottom: 5rem;
+  align-items: flex-end;
 }
-
- 
 
 h1 > span {
+  font-size: 2.4rem;
 
-    font-size: 2.4rem;
-
-    font-weight: 500;
-
- 
-
+  font-weight: 500;
 }
-
- 
 
 h2 {
+  font-size: 4.2rem;
 
-    font-size: 4.2rem;
+  margin-bottom: 4rem;
 
-    margin-bottom: 4rem;
-
-    font-weight: 700;
-
+  font-weight: 700;
 }
-
- 
 
 h3 {
+  font-size: 2.8rem;
 
-    font-size: 2.8rem;
-
-    font-weight: 500;
-
+  font-weight: 500;
 }
 
- 
+.beginBtn {
+  color: crimson;
+  font-size: 50px;
+  margin-bottom: 80px;
+  margin-left: 124px;
+  margin-top: -164px;
+}
+
+#Game-Timer {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+#High-Scores {
+  float: left;
+  width: 20%;
+  display: flex;
+}
+
+.timerBtn {
+  float: right;
+  width: 20%;
+}
 
 /* utilities */
 
- 
+.topScoresbtn {
+  width: 150px;
+  margin-right: 100px;
+  float: right;
+}
 
 .container {
-    background-color: aqua;
-    
-    margin-top: 40px;
+  background-color: aqua;
 
-    width: 100vw;
+  margin-top: 40px;
 
-    height: 100vh;
+  width: 100vw;
 
-    display: flex;
+  height: 100vh;
 
-    justify-content: center;
+  display: flex;
 
-    align-items: center;
+  justify-content: center;
 
+  align-items: center;
 }

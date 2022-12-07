@@ -4,40 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/style.css" />
-    <title>Sean's Quiz Maker </title>
+    <title>Sean's Quiz</title>
 </head>
 
-<body>
-
-    <div class="container">
-
-        <div id="home" class="flex-center flex-column">
-
-            <body id="body1">
-                <header>
-                    <div id="header-1">
-                        <h1>Sean's Quiz Maker</h1>
-                    </div>
-                    <nav>
-                        <h2 id="make-quiz" class="nav-text">Make a Quiz</h2>
-                        <div id="space"></div>
-                        <div class="dropdown">
-                            <h2 class="dropdown-btn">Stored Quizzes ▼</h2>
-                            <div id="dropdown-quiz-list" class="dropdown-content">
-                                <h3>question 1</h3>
-                                <h3>question 2</h3>
-                                <h3>question 3</h3>
-                                <h3>question 4</h3>
-                                <h3>question 5</h3>
-                            </div>
-                        </div>
-                    </nav>
-                </header>
-
-
+<body id="body1">
+    <header>
+        <div id="high-scores" class="container-2"></div>
+        <div id="header-1">
+            <h1>Are You Ready?</h1>
         </div>
 
-    </div>
+        <div id="High-Scores">
+            <input type="button" name="High Scores" value="Top Scores" class="topScoresbtn">
+        </div>
+
+        <div id="Game-Timer">
+            <input type="button" name="High Scores" value="Game Timer" class="timerBtn">
+        </div>
+
+
+        <div id="home" class="flex-center flex-column">
+            <div class="container">
+
+
+
+                <div class="btn">
+                    <input type="button" name="High Scores" value="Begin Your Quiz" class="beginBtn">
+
+                    <div id="dropdown-quiz-list" class="dropdown-content">
+                        <h3>question 1</h3>
+                        <h3>question 2</h3>
+                        <h3>question 3</h3>
+                        <h3>question 4</h3>
+                        <h3>question 5</h3>
+                    </div>
+                </div>
+                </nav>
+    </header>
+
+    <section class="mddlecontent" id="mddlecontent">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="timer" id="quiztimer"></div>
+
+
+            </div>
+
+        </div>
 
 </body>
 
