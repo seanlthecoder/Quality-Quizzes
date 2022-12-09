@@ -11,49 +11,53 @@
     <header>
         <div id="high-scores" class="container-2"></div>
         <div id="header-1">
-            <h1>Are You Ready?</h1>
+            <h1>Sean's Quiz App</h1>
         </div>
 
         <div id="High-Scores">
-            <input type="button" name="High Scores" value="Top Scores" class="topScoresbtn">
+            <input  name="High Scores" value="Top Scores" class="topScoresbtn">
         </div>
 
-        <div id="Game-Timer">
-            <input type="button" name="High Scores" value="Game Timer" class="timerBtn">
-        </div>
+        <div id="Timer">
+            <h2>Time Remaining</h2>
+            <h2 id="time">00</h2>
 
+        </div>
 
         <div id="home" class="flex-center flex-column">
             <div class="container">
 
+                <!-- GUIDE -->
 
-
-                <div class="btn">
-                    <input type="button" name="High Scores" value="Begin Your Quiz" class="beginBtn">
-
-                    <div id="dropdown-quiz-list" class="dropdown-content">
-                        <h3>question 1</h3>
-                        <h3>question 2</h3>
-                        <h3>question 3</h3>
-                        <h3>question 4</h3>
-                        <h3>question 5</h3>
+                <div id="guide">
+                    <h2>Quiz Guide</h2>
+                    <h3>1. You will only have 25 seconds for each question.</h3>
+                    <h3>2. If you select the correct answer, you will receive a point.</h3>
+                    <h3>3. If you select the wrong answer, you will have a point deducted from your score.</h3>
+                    <div id="button">
+                        <button id="exit">EXIT</button>
+                        <button id="continue">CONTINUE</button>
                     </div>
+
                 </div>
-                </nav>
-    </header>
 
-    <section class="mddlecontent" id="mddlecontent">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="timer" id="quiztimer"></div>
-
+                <!--Main Section -->
 
             </div>
 
-        </div>
+            <section class="mddlecontent" id="mddlecontent">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="timer" id="quiztimer"></div>
+
+
+                    </div>
+
+                </div>
+
+                <script src="script.js"></script>
 
 </body>
-
 
 
 </html>
