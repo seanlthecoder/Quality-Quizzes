@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/style.css" />
     <title>Sean's Quiz</title>
+
+
 </head>
 
 <body id="body1">
@@ -15,7 +17,7 @@
         </div>
 
         <div id="High-Scores">
-            <input  name="High Scores" value="Top Scores" class="topScoresbtn">
+            <input name="High Scores" value="Top Scores" class="topScoresbtn">
         </div>
 
         <div id="Timer">
@@ -23,8 +25,11 @@
             <h2 id="time">00</h2>
 
         </div>
+    </header>
 
-        <div id="home" class="flex-center flex-column">
+    <main>
+
+        <div id="home">
             <div class="container">
 
                 <!-- GUIDE -->
@@ -36,28 +41,29 @@
                     <h3>3. If you select the wrong answer, you will have a point deducted from your score.</h3>
                     <div id="button">
                         <button id="exit">EXIT</button>
-                        <button id="continue">CONTINUE</button>
+                        <button id="continue1">CONTINUE</button>
                     </div>
 
                 </div>
-
-                <!--Main Section -->
 
             </div>
+        </div>
 
-            <section class="mddlecontent" id="mddlecontent">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="timer" id="quiztimer"></div>
+        <section id="main-quiz">
 
 
-                    </div>
 
-                </div>
 
-                <script src="script.js"></script>
+
+
+
+        </section>
+
+    </main>
+    <!--Main Quiz Section -->
 
 </body>
 
+<script src="./assets/script.js"></script>
 
 </html>
