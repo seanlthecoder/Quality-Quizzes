@@ -18,9 +18,9 @@ body {
   left: 50%;
 }
 
-#time {
-    margin-right: -108px;
-    margin-top: 50;
+#timer {
+   color: black;
+   font-size: 1.5rem;;
 }
 
 .beginBtn {
@@ -183,19 +183,21 @@ h3 {
     background: lightsalmon;
 }
 
-#main {
 
-}
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 #main-quiz {
 
-  display: none;
+  /* display: none; */
 
-
+  width:70%;
+  margin-left:10%;
+  letter-spacing: 2px;
+  font-size:2rem;;
+  height:70vh;
 
 }
 
@@ -208,4 +210,15 @@ h3 {
   color:#333;
   font-size: 25px;
   padding: 10px;
+  
+}
+
+
+#questions button{
+  width: 90%;
+  margin:5%;
+  padding:5%;
+  text-align: center;
+  background-color: aquamarine;
+  color:white;
 }

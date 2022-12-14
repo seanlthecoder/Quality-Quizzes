@@ -1,4 +1,19 @@
-var userQuestions = [
+var continueButton = document.getElementById("continue1");
+var mainQuiz = document.getElementById("main-quiz");
+var homeSection = document.getElementById("home");
+var question = document.getElementById("question");
+var optionOne = document.getElementById("0");
+var optionTwo = document.getElementById("1");
+var optionThree = document.getElementById("2");
+var optionFour = document.getElementById("3");
+var timerElement = document.getElementById("time");
+var resultElement = document.getElementById("result");
+
+var score =0;
+var questionNumber = 0;
+var timerObject;
+var timeCount = 100;
+var userQuestionsDB = [
   {
     question: "Which of the following is correct about features of JavaScript?",
     choices: [
@@ -7,13 +22,13 @@ var userQuestions = [
       "C - Both of the above.",
       "D - All of the above.",
     ],
-    Answer: "C - Both of the above.",
+    answer: 2
   },
 
   {
     question: "Objects can contain objects as property values. True or false?",
     choices: ["A - True", "B - False", "C - NONE"],
-    answer: "True",
+    answer: 0
   },
 
   {
@@ -25,7 +40,7 @@ var userQuestions = [
       "C - substr()",
       "D - concat()",
     ],
-    answer: "A - localeCompare()",
+    answer: 0
   },
 
   {
@@ -37,7 +52,7 @@ var userQuestions = [
       "C - both a & b",
       " D - none",
     ],
-    answer: " Answer - A -{x: 10}",
+    answer: 0
   },
 
   {
@@ -48,7 +63,7 @@ var userQuestions = [
       "C - obj.accessProperty('top-price')",
       " D - Both a & b",
     ],
-    answer: "B - obj['top-price']",
+    answer: 1
   },
 
   {
@@ -60,14 +75,14 @@ var userQuestions = [
       "C - changeCase(case)",
       "D - None of the above.",
     ],
-    answer: "Answer - A - toLowerCase()",
+    answer: 0
   },
 
   {
     question:
       "Which of the following function of String object causes a string to be displayed in the specified color as if it were in a <font color='color'> tag?",
     choices: ["A - fixed()", "B - fontcolor()", "C - blink()", "D - bold()"],
-    answer: "B fontcolor()",
+    answer: 1
   },
 
   {
@@ -78,7 +93,7 @@ var userQuestions = [
       "C - <scripting>",
       "D - <js>",
     ],
-    answer: "A <script>",
+    answer: 0
   },
 
   {
@@ -92,8 +107,8 @@ var userQuestions = [
       "C - #demo.innerHTML = 'Hello World!';",
       "D - document.getElementByName('p'.innerHTML = 'Hello World!';",
     ],
-    answer:
-      "Answer B - document.getElementById('demo').innerHTML = 'Hello World!';",
+    answer: 1
+      
   },
 
   {
@@ -103,54 +118,124 @@ var userQuestions = [
       "B - The <head> section",
       "C - Both the <head> section and the <body> section.",
     ],
-    answer: "C - Both the <head> section and the <body> section are correct. ",
+    answer: 2
   },
 ];
 
-var homeSection = document.getElementById("home");
-var continueButton = document.getElementById("continue1");
-var questionsElement = document.createElement("h3");
-var firstAnswer = document.createElement("button");
-var secondAnswer = document.createElement("button");
-var thirdAnswer = document.createElement("button");
-var fourthAnswer = document.createElement("button");
-var mainQuiz = document.getElementById("main-quiz");
-
-function startQuiz() {
-  homeSection.classList.add("hidden");
-  questionsElement.setAttribute("id", "questions");
-  firstAnswer.setAttribute("id", "first-answer");
-  secondAnswer.setAttribute("id", "second-answer");
-  thirdAnswer.setAttribute("id", "third-answer");
-  fourthAnswer.setAttribute("id", "fourth-answer");
-  questionsElement.textContent = "Question 1";
-  firstAnswer.textContent = "AnswerContent1";
-  secondAnswer.textContent = "AnswerContent2";
-  thirdAnswer.textContent = "AnswerContent3";
-  fourthAnswer.textContent = "AnswerContent4";
-  mainQuiz.appendChild(questionsElement);
-  mainQuiz.appendChild(firstAnswer);
-  mainQuiz.appendChild(secondAnswer);
-  mainQuiz.appendChild(thirdAnswer);
-  mainQuiz.appendChild(fourthAnswer);
-}
+mainQuiz.style.display = "none";
 
 function userQuestions() {
-  let questionsElement;
+    question.textContent = userQuestionsDB[questionNumber].question
+    optionOne.textContent = userQuestionsDB[questionNumber].choices[0]
+    optionTwo.textContent = userQuestionsDB[questionNumber].choices[1]
+    optionThree.textContent = userQuestionsDB[questionNumber].choices[2]
+    optionFour.textContent = userQuestionsDB[questionNumber].choices[3]
+    console.log(userQuestionsDB[questionNumber])
 }
 
-var mainQuiz = document.getElementById("main-quiz");
-var backButton = document.getElementById("back-button");
+
+
 
 continueButton.addEventListener("click", function () {
   homeSection.style.display = "none";
   mainQuiz.style.display = "block";
+  timerObject = setInterval(function(){
+    timerElement.textContent = timeCount;
+    if(timeCount > 1){
+        timeCount--
+    }else{
+        displayScore()
+    }
+  },1000)
+  userQuestions()
 });
 
-backButton.addEventListener("click", function () {
-    mainQuiz.style.display = "none";
-    homeSection.style.display = "block";
+
+
+function checkAnswer(){
+    var userSelection = this.getAttribute("id")
+    if(userSelection == userQuestionsDB[questionNumber].answer){
+        score+= 10;
+        resultElement.textContent = "Correct"
+    }else{
+        resultElement.textContent = "Wrong"
+        timeCount -= 5;
+    }
+    if(questionNumber < userQuestionsDB.length-1){
+        questionNumber++;
+        userQuestions()
+    }else{
+        displayScore()
+    }
+}
+
+
+function displayScore(){
+  clearInterval(timerObject)
+  mainQuiz.style.display = "none";
+
+
+}
+
+optionOne.addEventListener("click",checkAnswer)
+optionTwo.addEventListener("click",checkAnswer)
+optionThree.addEventListener("click",checkAnswer)
+optionFour.addEventListener("click",checkAnswer)
+
+/// Not yet included
+// var backButton = document.getElementById("back-button");
+
+// backButton.addEventListener("click", function () {
+//     mainQuiz.style.display = "none";
+//     homeSection.style.display = "block";
 
 
 
-})
+// });
+
+// document.getElementById("questions").style.textAlign = "center";
+
+// restartBtn.addEventListener("click", restart);
+// nextBtn.addEventListener("click", next);
+// submitBtn.addEventListener("click", submit);
+
+
+
+// function restart() {
+//     currentQuestion = 0;
+//     backButton.classList.remove('hide');
+//     nextBtn.classList.remove('hide');
+//     submitBtn.classList.remove('hide');
+//     trueBtn.classlist.remove('hide');
+//     falseBtn.classlist.remove('hide');
+//     score = 0;
+//     userScore.innerHTML = score;
+//     startQuiz();
+// }
+
+
+
+// var questionsElement = document.createElement("h3");
+// var firstAnswer = document.createElement("button");
+// var secondAnswer = document.createElement("button");
+// var thirdAnswer = document.createElement("button");
+// var fourthAnswer = document.createElement("button");
+
+// function startQuiz() {
+//   homeSection.classList.add("hidden");
+//   questionsElement.setAttribute("id", "questions");
+//   firstAnswer.setAttribute("id", "first-answer");
+//   secondAnswer.setAttribute("id", "second-answer");
+//   thirdAnswer.setAttribute("id", "third-answer");
+//   fourthAnswer.setAttribute("id", "fourth-answer");
+//   questionsElement.textContent = "Question 1";
+//   firstAnswer.textContent = "AnswerContent1";
+//   secondAnswer.textContent = "AnswerContent2";
+//   thirdAnswer.textContent = "AnswerContent3";
+//   fourthAnswer.textContent = "AnswerContent4";
+//   mainQuiz.appendChild(questionsElement);
+//   mainQuiz.appendChild(firstAnswer);
+//   mainQuiz.appendChild(secondAnswer);
+//   mainQuiz.appendChild(thirdAnswer);
+//   mainQuiz.appendChild(fourthAnswer);
+// }
