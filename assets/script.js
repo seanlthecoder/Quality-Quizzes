@@ -191,7 +191,7 @@ function checkAnswer(){
     }
 }
 
-
+// funtion declarations are hoisted and I believe can be below where they are used as long its not called immeditately when the page loads. This function hides that main page and displays the score.
 function displayScore(){
   clearInterval(timerObject)
   mainQuiz.style.display = "none";
