@@ -21,10 +21,13 @@ var timerElement = document.getElementById("time");
 // result element will tell us if its right or wrong.
 var resultElement = document.getElementById("result");
 
+// variable to eep the score
 var score =0;
 var questionNumber = 0;
 var timerObject;
 var timeCount = 100;
+
+// this variable will hold the array of questions
 var userQuestionsDB = [
   {
     question: "Which of the following is correct about features of JavaScript?",
@@ -163,7 +166,7 @@ continueButton.addEventListener("click", function () {
 });
 
 
-
+// on click event listeners to check the answer and go on to the next question. id will match the array index so the array value and the answer value matches, it means its right.
 function checkAnswer(){
     var userSelection = this.getAttribute("id")
     if(userSelection == userQuestionsDB[questionNumber].answer){
@@ -213,6 +216,8 @@ optionFour.addEventListener("click",checkAnswer)
 
 
 
+// This would ideally restart the quiz by calling the initial startQuiz function...
+
 // function restart() {
 //     currentQuestion = 0;
 //     backButton.classList.remove('hide');
@@ -226,6 +231,7 @@ optionFour.addEventListener("click",checkAnswer)
 // }
 
 
+// commented these out because I already have them created.
 
 // var questionsElement = document.createElement("h3");
 // var firstAnswer = document.createElement("button");
