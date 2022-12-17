@@ -21,10 +21,16 @@ var timerElement = document.getElementById("time");
 // result element will tell us if its right or wrong.
 var resultElement = document.getElementById("result");
 
-// variable to eep the score
+// variable to keep the score
 var score =0;
+
+// variable to show which question is currently displayed on the screen
 var questionNumber = 0;
+
+// variable for a timer to keep time
 var timerObject;
+
+//variable to hold the timer count down
 var timeCount = 100;
 
 // this variable will hold the array of questions
@@ -139,6 +145,7 @@ var userQuestionsDB = [
 
 mainQuiz.style.display = "none";
 
+// display the current question and the answer choices for each question
 function userQuestions() {
     question.textContent = userQuestionsDB[questionNumber].question
     optionOne.textContent = userQuestionsDB[questionNumber].choices[0]
@@ -150,7 +157,7 @@ function userQuestions() {
 
 
 
-
+// start button is clicked it hides the home section and displays the main quiz page
 continueButton.addEventListener("click", function () {
   homeSection.style.display = "none";
   mainQuiz.style.display = "block";
@@ -192,6 +199,7 @@ function displayScore(){
 
 }
 
+// when a choice is selected by click, the checkAnswer function is executed.
 optionOne.addEventListener("click",checkAnswer)
 optionTwo.addEventListener("click",checkAnswer)
 optionThree.addEventListener("click",checkAnswer)
