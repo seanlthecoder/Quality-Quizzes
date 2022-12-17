@@ -1,12 +1,24 @@
-var continueButton = document.getElementById("continue1");
+
+// This element will START the quiz
+var continueButton = document.getElementById("start1");
+
+// This element will display the main quiz page
 var mainQuiz = document.getElementById("main-quiz");
+
+//This element displays the entire HOME container
 var homeSection = document.getElementById("home");
+
+// this element displays the questions at the top of the page
 var question = document.getElementById("question");
+
+// id will match the array so the array value and the answer value matches, it means its right. When the user clicks on a button, I'm grabbing the id and checking it against the answer index
 var optionOne = document.getElementById("0");
 var optionTwo = document.getElementById("1");
 var optionThree = document.getElementById("2");
 var optionFour = document.getElementById("3");
 var timerElement = document.getElementById("time");
+
+// result element will tell us if its right or wrong.
 var resultElement = document.getElementById("result");
 
 var score =0;
