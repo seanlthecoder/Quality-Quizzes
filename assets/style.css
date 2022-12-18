@@ -99,11 +99,22 @@ h3 {
 }
 
 #time {
-  display: flex;
-  flex-direction: row-reverse;
-    border-radius: 10px 10px;
-    margin-top: 35px;
-    position: relative;
+
+  background-color:bisque;
+	width: 7.5em;
+		border-radius: 1.8em;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0.7em 1.8em;
+  /* font-size: 30;
+  float: left;
+  padding: 30px;
+  border: solid;
+  width: fit-content;
+  margin-left: 864px;
+  margin-top: -18px;
+  display: flex; */
 }
 
 #High-Scores {
@@ -116,10 +127,10 @@ h3 {
 
 }
 
-.timerBtn {
+/* .timerBtn {
   float: right;
   width: 20%;
-}
+} */
 
 /* utilities */
 

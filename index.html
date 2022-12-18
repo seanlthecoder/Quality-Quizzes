@@ -20,8 +20,16 @@
             <input name="High Scores" value="Top Scores" class="topScoresbtn">
         </div>
 
-        <div id="time"></div>
-        
+        <div id="time">
+            <p style= border:1px solid #020217;
+            text-align: center;
+            >Time Remaining
+                <span id="time">00</span>
+            </p>
+
+        </div>
+
+
         <!-- <div id="Timer">
             <p>Time Remaining
             <span id="time">00</span></p> -->
@@ -36,11 +44,13 @@
 
                 <!-- GUIDE -->
 
+              
+
                 <div id="guide">
                     <h2>Quiz Guide</h2>
-                    <h3>1. You will only have 25 seconds for each question.</h3>
-                    <h3>2. If you select the correct answer, you will receive a point.</h3>
-                    <h3>3. If you select the wrong answer, you will have a point deducted from your score.</h3>
+                    <h3>1. You will have a total of 100 seconds to answer all questions.</h3>
+                    <h3>2. If you select the correct answer, you will receive 5 points.</h3>
+                    <h3>3. If you select the wrong answer, you will have 10 points deducted from your score.</h3>
                     <div id="button">
                         <button id="start1">START</button>
                     </div>
@@ -60,10 +70,13 @@
                 <h4 id="question">
                 </h4>
 
-
+                <div id="display-container">
+                    <div class="number-of-count">
+                    <span class="number-of-question">1 of 10 questions</span>
+                    </div>
 
                 <button id="0"></button>
-               
+
                 <button id="1"></button>
 
                 <button id="2"></button>
@@ -96,7 +109,7 @@
 
 
             </div>
-<!--Back button but I think I want it to be an exit button instead. A button to exit the quiz-->
+            <!--Back button but I think I want it to be an exit button instead. A button to exit the quiz-->
             <!-- <div>
                 <button id="back-button" type="button">Back Button</button>
 
