@@ -1,4 +1,5 @@
 
+
 // This element will START the quiz
 var continueButton = document.getElementById("start1");
 
@@ -10,6 +11,13 @@ var homeSection = document.getElementById("home");
 
 // this element displays the questions at the top of the page
 var question = document.getElementById("question");
+
+var theSCORE = document.getElementById("theSCORE");
+
+// var nameEntry = document.getElementById("name-entry")
+
+// Google search 'how to create and append an html element so that you can add
+// name entry to the html --- I may need to do this with an event listener farther down the code as oppose to up top
 
 // id will match the array so the array value and the answer value matches, it means its right. When the user clicks on a button, I'm grabbing the id and checking it against the answer index
 var optionOne = document.getElementById("0");
@@ -23,6 +31,7 @@ var resultElement = document.getElementById("result");
 
 // variable to keep the score
 var score =0;
+
 
 // variable to show which question is currently displayed on the screen
 var questionNumber = 0;
@@ -119,8 +128,8 @@ var userQuestionsDB = [
 
   {
     question:
-      "What is the correct JavaScript syntax to change the content of the HTML element below?" /
-      "<p id='demo'>Sean is Amazing.</p>",
+      `What is the correct JavaScript syntax to change the content of the HTML element?:
+      <p id='demo'>Sean is Amazing.</p>`,
 
     choices: [
       "A - document.getElement('p').innerHTML = 'Hello World!';",
@@ -147,6 +156,7 @@ mainQuiz.style.display = "none";
 
 // display the current question and the answer choices for each question
 function userQuestions() {
+  console.log("UserQuestion Test");
     question.textContent = userQuestionsDB[questionNumber].question
     optionOne.textContent = userQuestionsDB[questionNumber].choices[0]
     optionTwo.textContent = userQuestionsDB[questionNumber].choices[1]
@@ -178,6 +188,7 @@ function checkAnswer(){
     var userSelection = this.getAttribute("id")
     if(userSelection == userQuestionsDB[questionNumber].answer){
         score+= 10;
+        console.log(score);
         resultElement.textContent = "Correct"
     }else{
         resultElement.textContent = "Wrong"
@@ -193,9 +204,14 @@ function checkAnswer(){
 
 // funtion declarations are hoisted and I believe can be below where they are used as long its not called immeditately when the page loads. This function hides that main page and displays the score.
 function displayScore(){
-  clearInterval(timerObject)
+  console.log("displayCode");
+  clearInterval(timerObject);
+  // clearInterval clears the timer
   mainQuiz.style.display = "none";
+  // mainQuiz hides the main page.
 
+  theSCORE.textContent = score
+  
 
 }
 
@@ -204,6 +220,26 @@ optionOne.addEventListener("click",checkAnswer)
 optionTwo.addEventListener("click",checkAnswer)
 optionThree.addEventListener("click",checkAnswer)
 optionFour.addEventListener("click",checkAnswer)
+
+//create event listener for top score button. id = High-Scores
+// with this event listener I want to display all scores and have a place for the user to type in their name and submit. We want to get the LOCAL STORAGE and display it. 
+// Here is where I need to get local storage.
+// Handle what happens if local storage is empty. EX: creating an if statement to get the local storage otherwise if will throw an error if empty. If its empty and i get it, i dont want to parse it and put in HTML. It will error out... Else console log if empty etc...
+//Here is where I need to PARSE local storage.
+// Here is where i need to create an element to display the local storage. Create a div or a container....
+// do this in the javascript - create an append to HTML
+// Create HTML element within javascript
+// I need an input field to type in the name
+//I need a button to submit the name. 
+//I need an event listener for the submit button that adds it to local storage.
+
+// create event listener for submit button
+// submit button adds everything to local storage and calls restart function.
+// with this event listener I want to set local storage. Create an element to display local storage, if it's there, add name to storage....
+
+
+
+
 
 /// Not yet included
 // var backButton = document.getElementById("back-button");

@@ -19,7 +19,7 @@ body {
 }
 
 #timer {
-   color: black;
+   color:azure;
    font-size: 1.5rem;;
 }
 
@@ -100,7 +100,8 @@ h3 {
 
 #time {
 
-  background-color:bisque;
+  background-color:blue;
+  color:azure;
 	width: 7.5em;
 		border-radius: 1.8em;
 		display: flex;
