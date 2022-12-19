@@ -1,4 +1,4 @@
-
+var containerElement = document.querySelector('.container');
 
 // This element will START the quiz
 var continueButton = document.getElementById("start1");
@@ -12,7 +12,42 @@ var homeSection = document.getElementById("home");
 // this element displays the questions at the top of the page
 var question = document.getElementById("question");
 
-var theSCORE = document.getElementById("theSCORE");
+function endQuiz() {
+  var theSCORE = document.getElementById("div");
+
+  var nameEntry = document.createElement("input");
+
+  var topSCORES = document.createElement("ul");
+
+  var nameUserBox = document.createElement("div");
+
+  var submitScoreButton = document.createElement("button");
+
+  var localStorageScores = localStorage.getItem("Scores") || [];
+
+  localStorageScores.forEach(function (SCORE) {
+    var listElement = (document.createElement("li").textContent =
+      SCORE.name + " " + SCORE.score);
+
+    topSCORES.appendChild(listElement);
+  });
+
+  nameUserBox.appendChild(nameEntry);
+
+  nameUserBox.appendChild(theSCORE);
+
+  submitScoreButton.textContent = "submit";
+
+  nameUserBox.appendChild(submitScoreButton);
+
+  homeSection.appendChild(topSCORES);
+  homeSection.appendChild(nameUserBox);
+
+
+
+
+
+}
 
 // var nameEntry = document.getElementById("name-entry")
 
@@ -30,8 +65,7 @@ var timerElement = document.getElementById("time");
 var resultElement = document.getElementById("result");
 
 // variable to keep the score
-var score =0;
-
+var score = 0;
 
 // variable to show which question is currently displayed on the screen
 var questionNumber = 0;
@@ -52,13 +86,13 @@ var userQuestionsDB = [
       "C - Both of the above.",
       "D - All of the above.",
     ],
-    answer: 2
+    answer: 2,
   },
 
   {
     question: "Objects can contain objects as property values. True or false?",
     choices: ["A - True", "B - False", "C - NONE"],
-    answer: 0
+    answer: 0,
   },
 
   {
@@ -70,7 +104,7 @@ var userQuestionsDB = [
       "C - substr()",
       "D - concat()",
     ],
-    answer: 0
+    answer: 0,
   },
 
   {
@@ -82,7 +116,7 @@ var userQuestionsDB = [
       "C - both a & b",
       " D - none",
     ],
-    answer: 0
+    answer: 0,
   },
 
   {
@@ -93,7 +127,7 @@ var userQuestionsDB = [
       "C - obj.accessProperty('top-price')",
       " D - Both a & b",
     ],
-    answer: 1
+    answer: 1,
   },
 
   {
@@ -105,14 +139,14 @@ var userQuestionsDB = [
       "C - changeCase(case)",
       "D - None of the above.",
     ],
-    answer: 0
+    answer: 0,
   },
 
   {
     question:
       "Which of the following function of String object causes a string to be displayed in the specified color as if it were in a <font color='color'> tag?",
     choices: ["A - fixed()", "B - fontcolor()", "C - blink()", "D - bold()"],
-    answer: 1
+    answer: 1,
   },
 
   {
@@ -123,12 +157,11 @@ var userQuestionsDB = [
       "C - <scripting>",
       "D - <js>",
     ],
-    answer: 0
+    answer: 0,
   },
 
   {
-    question:
-      `What is the correct JavaScript syntax to change the content of the HTML element?:
+    question: `What is the correct JavaScript syntax to change the content of the HTML element?:
       <p id='demo'>Sean is Amazing.</p>`,
 
     choices: [
@@ -137,8 +170,7 @@ var userQuestionsDB = [
       "C - #demo.innerHTML = 'Hello World!';",
       "D - document.getElementByName('p'.innerHTML = 'Hello World!';",
     ],
-    answer: 1
-      
+    answer: 1,
   },
 
   {
@@ -148,7 +180,7 @@ var userQuestionsDB = [
       "B - The <head> section",
       "C - Both the <head> section and the <body> section.",
     ],
-    answer: 2
+    answer: 2,
   },
 ];
 
@@ -157,72 +189,77 @@ mainQuiz.style.display = "none";
 // display the current question and the answer choices for each question
 function userQuestions() {
   console.log("UserQuestion Test");
-    question.textContent = userQuestionsDB[questionNumber].question
-    optionOne.textContent = userQuestionsDB[questionNumber].choices[0]
-    optionTwo.textContent = userQuestionsDB[questionNumber].choices[1]
-    optionThree.textContent = userQuestionsDB[questionNumber].choices[2]
-    optionFour.textContent = userQuestionsDB[questionNumber].choices[3]
-    console.log(userQuestionsDB[questionNumber])
+  question.textContent = userQuestionsDB[questionNumber].question;
+  optionOne.textContent = userQuestionsDB[questionNumber].choices[0];
+  optionTwo.textContent = userQuestionsDB[questionNumber].choices[1];
+  optionThree.textContent = userQuestionsDB[questionNumber].choices[2];
+  optionFour.textContent = userQuestionsDB[questionNumber].choices[3];
+  console.log(userQuestionsDB[questionNumber]);
 }
-
-
 
 // start button is clicked it hides the home section and displays the main quiz page
 continueButton.addEventListener("click", function () {
   homeSection.style.display = "none";
   mainQuiz.style.display = "block";
-  timerObject = setInterval(function(){
+  timerObject = setInterval(function () {
     timerElement.textContent = timeCount;
-    if(timeCount > 1){
-        timeCount--
-    }else{
-        displayScore()
+    if (timeCount > 1) {
+      timeCount--;
+    } else {
+      displayScore();
     }
-  },1000)
-  userQuestions()
+  }, 1000);
+  userQuestions();
 });
 
-
 // on click event listeners to check the answer and go on to the next question. id will match the array index so the array value and the answer value matches, it means its right.
-function checkAnswer(){
-    var userSelection = this.getAttribute("id")
-    if(userSelection == userQuestionsDB[questionNumber].answer){
-        score+= 10;
-        console.log(score);
-        resultElement.textContent = "Correct"
-    }else{
-        resultElement.textContent = "Wrong"
-        timeCount -= 5;
-    }
-    if(questionNumber < userQuestionsDB.length-1){
-        questionNumber++;
-        userQuestions()
-    }else{
-        displayScore()
-    }
+function checkAnswer() {
+  var userSelection = this.getAttribute("id");
+  if (userSelection == userQuestionsDB[questionNumber].answer) {
+    score += 10;
+    console.log(score);
+    resultElement.textContent = "Correct";
+  } else {
+    resultElement.textContent = "Wrong";
+    timeCount -= 5;
+  }
+  if (questionNumber < userQuestionsDB.length - 1) {
+    questionNumber++;
+    userQuestions();
+  } else {
+    displayScore();
+  }
 }
 
 // funtion declarations are hoisted and I believe can be below where they are used as long its not called immeditately when the page loads. This function hides that main page and displays the score.
-function displayScore(){
+function displayScore() {
   console.log("displayCode");
   clearInterval(timerObject);
   // clearInterval clears the timer
   mainQuiz.style.display = "none";
   // mainQuiz hides the main page.
-
-  theSCORE.textContent = score
-  
+  homeSection.style.display = 'block';
+  // theSCORE.textContent = score;
+  endQuiz()
 
 }
 
 // when a choice is selected by click, the checkAnswer function is executed.
-optionOne.addEventListener("click",checkAnswer)
-optionTwo.addEventListener("click",checkAnswer)
-optionThree.addEventListener("click",checkAnswer)
-optionFour.addEventListener("click",checkAnswer)
+optionOne.addEventListener("click", checkAnswer);
+optionTwo.addEventListener("click", checkAnswer);
+optionThree.addEventListener("click", checkAnswer);
+optionFour.addEventListener("click", checkAnswer);
+
+topSCORES.addEventListener("submit", function handleClick(event) {});
+
+topSCORES.setAttribute("id", "top-scores");
+
+topSCORES.textContent = "TOP SCORES";
+
+topSCORES.appendChild("div");
 
 //create event listener for top score button. id = High-Scores
-// with this event listener I want to display all scores and have a place for the user to type in their name and submit. We want to get the LOCAL STORAGE and display it. 
+// with this event listener I want to display all scores and have a place for the user to type in their name and submit. We want to get the LOCAL STORAGE and display it.
 // Here is where I need to get local storage.
 // Handle what happens if local storage is empty. EX: creating an if statement to get the local storage otherwise if will throw an error if empty. If its empty and i get it, i dont want to parse it and put in HTML. It will error out... Else console log if empty etc...
 //Here is where I need to PARSE local storage.
@@ -230,25 +267,19 @@ optionFour.addEventListener("click",checkAnswer)
 // do this in the javascript - create an append to HTML
 // Create HTML element within javascript
 // I need an input field to type in the name
-//I need a button to submit the name. 
+//I need a button to submit the name.
 //I need an event listener for the submit button that adds it to local storage.
 
 // create event listener for submit button
 // submit button adds everything to local storage and calls restart function.
 // with this event listener I want to set local storage. Create an element to display local storage, if it's there, add name to storage....
 
-
-
-
-
 /// Not yet included
 // var backButton = document.getElementById("back-button");
 
-// backButton.addEventListener("click", function () {
+// submit.addEventListener("click", function () {
 //     mainQuiz.style.display = "none";
 //     homeSection.style.display = "block";
-
-
 
 // });
 
@@ -257,8 +288,6 @@ optionFour.addEventListener("click",checkAnswer)
 // restartBtn.addEventListener("click", restart);
 // nextBtn.addEventListener("click", next);
 // submitBtn.addEventListener("click", submit);
-
-
 
 // This would ideally restart the quiz by calling the initial startQuiz function...
 
@@ -273,7 +302,6 @@ optionFour.addEventListener("click",checkAnswer)
 //     userScore.innerHTML = score;
 //     startQuiz();
 // }
-
 
 // commented these out because I already have them created.
 
