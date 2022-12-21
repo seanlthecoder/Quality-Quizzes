@@ -1,3 +1,5 @@
+var endQuizElement = document.getElementById("endQuiz");
+
 var containerElement = document.querySelector('.container');
 
 // This element will START the quiz
@@ -12,10 +14,17 @@ var homeSection = document.getElementById("home");
 // this element displays the questions at the top of the page
 var question = document.getElementById("question");
 
+var highSCORES = document.getElementById("high-scores");
+
+var theSCORE = document.getElementById("theSCORE");
+
+
+
 function endQuiz() {
-  var theSCORE = document.getElementById("div");
+  var theSCORE = document.createElement("div");
 
   var nameEntry = document.createElement("input");
+  
 
   var topSCORES = document.createElement("ul");
 
@@ -35,13 +44,17 @@ function endQuiz() {
   nameUserBox.appendChild(nameEntry);
 
   nameUserBox.appendChild(theSCORE);
-
+  theSCORE.textContent = score;
   submitScoreButton.textContent = "submit";
+
+  submitScoreButton.addEventListener("click", function(){
+    nameEntry.value
+  })
 
   nameUserBox.appendChild(submitScoreButton);
 
-  homeSection.appendChild(topSCORES);
-  homeSection.appendChild(nameUserBox);
+  endQuizElement.appendChild(topSCORES);
+  endQuizElement.appendChild(nameUserBox);
 
 
 
@@ -238,8 +251,8 @@ function displayScore() {
   // clearInterval clears the timer
   mainQuiz.style.display = "none";
   // mainQuiz hides the main page.
-  homeSection.style.display = 'block';
-  // theSCORE.textContent = score;
+  endQuizElement.style.display = 'block';
+  
   endQuiz()
 
 }
@@ -250,13 +263,17 @@ optionTwo.addEventListener("click", checkAnswer);
 optionThree.addEventListener("click", checkAnswer);
 optionFour.addEventListener("click", checkAnswer);
 
-topSCORES.addEventListener("submit", function handleClick(event) {});
 
-topSCORES.setAttribute("id", "top-scores");
 
-topSCORES.textContent = "TOP SCORES";
 
-topSCORES.appendChild("div");
+
+// topSCORES.addEventListener("submit", function handleClick(event) {});
+
+// topSCORES.setAttribute("id", "top-scores");
+
+// topSCORES.textContent = "TOP SCORES";
+
+// topSCORES.appendChild("div");
 
 //create event listener for top score button. id = High-Scores
 // with this event listener I want to display all scores and have a place for the user to type in their name and submit. We want to get the LOCAL STORAGE and display it.
