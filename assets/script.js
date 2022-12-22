@@ -1,9 +1,9 @@
 var endQuizElement = document.getElementById("endQuiz");
 
-var containerElement = document.querySelector('.container');
+var containerElement = document.querySelector(".container");
 
 // This element will START the quiz
-var continueButton = document.getElementById("start1");
+var startButton = document.getElementById("start1");
 
 // This element will display the main quiz page
 var mainQuiz = document.getElementById("main-quiz");
@@ -18,51 +18,69 @@ var highSCORES = document.getElementById("high-scores");
 
 var theSCORE = document.getElementById("theSCORE");
 
-
+var nameEntry = document.getElementById("name-entry");
+var resultElement = document.getElementById("result");
+var timerElement = document.getElementById("time");
 
 function endQuiz() {
-  var theSCORE = document.createElement("div");
+  timerElement.style.display = "none";
+  resultElement.style.display = "none";
+  var theSCORE = document.createElement("h4");
 
   var nameEntry = document.createElement("input");
-  
 
   var topSCORES = document.createElement("ul");
+  topSCORES.setAttribute("id","highscore")
 
   var nameUserBox = document.createElement("div");
 
   var submitScoreButton = document.createElement("button");
 
-  var localStorageScores = localStorage.getItem("Scores") || [];
+  var restartButton = document.createElement("button");
+
+  var localStorageScores = JSON.parse(localStorage.getItem("Scores")) || [];
 
   localStorageScores.forEach(function (SCORE) {
-    var listElement = (document.createElement("li").textContent =
-      SCORE.name + " " + SCORE.score);
+    var listElement = document.createElement("li")
+    listElement.textContent =
+      SCORE.name + " " + SCORE.score;
 
     topSCORES.appendChild(listElement);
   });
+  nameEntry.placeholder = "Enter User Iniitals";
+  nameEntry.classList.add("result");
 
-  nameUserBox.appendChild(nameEntry);
-
+  theSCORE.textContent = "Your final Score:" + score;
   nameUserBox.appendChild(theSCORE);
-  theSCORE.textContent = score;
-  submitScoreButton.textContent = "submit";
+  nameUserBox.appendChild(nameEntry);
+  submitScoreButton.textContent = "Submit";
+  restartButton.textContent = "Restart Quiz";
+  restartButton.classList.add("btn");
+  submitScoreButton.classList.add("btn");
 
-  submitScoreButton.addEventListener("click", function(){
-    nameEntry.value
-  })
+  restartButton.addEventListener("click", function () {
+    location.reload();
+  });
 
-  nameUserBox.appendChild(submitScoreButton);
-
+  submitScoreButton.addEventListener("click", function () {
+    var userScore = {
+      name: document.querySelector(".result").value,
+      score: score,
+    };
+    localStorageScores.push(userScore);
+    localStorage.setItem("Scores", JSON.stringify(localStorageScores));
+    var listElement = document.createElement("li")
+     listElement.textContent =
+      userScore.name + " " + userScore.score;
+   //topSCORES.appendChild(listElement);
+    document.getElementById("highscore").appendChild(listElement);
+  });
   endQuizElement.appendChild(topSCORES);
+  nameUserBox.appendChild(submitScoreButton);
   endQuizElement.appendChild(nameUserBox);
 
-
-
-
-
+  endQuizElement.appendChild(restartButton);
 }
-
-// var nameEntry = document.getElementById("name-entry")
 
 // Google search 'how to create and append an html element so that you can add
 // name entry to the html --- I may need to do this with an event listener farther down the code as oppose to up top
@@ -72,10 +90,8 @@ var optionOne = document.getElementById("0");
 var optionTwo = document.getElementById("1");
 var optionThree = document.getElementById("2");
 var optionFour = document.getElementById("3");
-var timerElement = document.getElementById("time");
 
 // result element will tell us if its right or wrong.
-var resultElement = document.getElementById("result");
 
 // variable to keep the score
 var score = 0;
@@ -211,7 +227,7 @@ function userQuestions() {
 }
 
 // start button is clicked it hides the home section and displays the main quiz page
-continueButton.addEventListener("click", function () {
+startButton.addEventListener("click", function () {
   homeSection.style.display = "none";
   mainQuiz.style.display = "block";
   timerObject = setInterval(function () {
@@ -251,10 +267,9 @@ function displayScore() {
   // clearInterval clears the timer
   mainQuiz.style.display = "none";
   // mainQuiz hides the main page.
-  endQuizElement.style.display = 'block';
-  
-  endQuiz()
+  endQuizElement.style.display = "block";
 
+  endQuiz();
 }
 
 // when a choice is selected by click, the checkAnswer function is executed.
@@ -262,10 +277,6 @@ optionOne.addEventListener("click", checkAnswer);
 optionTwo.addEventListener("click", checkAnswer);
 optionThree.addEventListener("click", checkAnswer);
 optionFour.addEventListener("click", checkAnswer);
-
-
-
-
 
 // topSCORES.addEventListener("submit", function handleClick(event) {});
 
@@ -294,31 +305,29 @@ optionFour.addEventListener("click", checkAnswer);
 /// Not yet included
 // var backButton = document.getElementById("back-button");
 
-// submit.addEventListener("click", function () {
-//     mainQuiz.style.display = "none";
-//     homeSection.style.display = "block";
-
+// submitBtn.addEventListener("click", function () {
+//   mainQuiz.style.display = "none";
+//   homeSection.style.display = "block";
 // });
 
-// document.getElementById("questions").style.textAlign = "center";
+document.getElementById("questions").style.textAlign = "center";
 
-// restartBtn.addEventListener("click", restart);
 // nextBtn.addEventListener("click", next);
 // submitBtn.addEventListener("click", submit);
 
 // This would ideally restart the quiz by calling the initial startQuiz function...
 
-// function restart() {
-//     currentQuestion = 0;
-//     backButton.classList.remove('hide');
-//     nextBtn.classList.remove('hide');
-//     submitBtn.classList.remove('hide');
-//     trueBtn.classlist.remove('hide');
-//     falseBtn.classlist.remove('hide');
-//     score = 0;
-//     userScore.innerHTML = score;
-//     startQuiz();
-// }
+function restart() {
+  currentQuestion = 0;
+  backButton.classList.remove("hide");
+  nextBtn.classList.remove("hide");
+  submitBtn.classList.remove("hide");
+  trueBtn.classlist.remove("hide");
+  falseBtn.classlist.remove("hide");
+  score = 0;
+  userScore.innerHTML = score;
+  startQuiz();
+}
 
 // commented these out because I already have them created.
 
