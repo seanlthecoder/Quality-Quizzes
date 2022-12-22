@@ -146,6 +146,7 @@ h3 {
   position: relative;
   display: none;
   border: solid red 2px;
+
 }
 
 #theSCORE {
@@ -185,7 +186,8 @@ h3 {
   padding: 30px;
   border-radius: 40px 20px;
   border: 5px solid black;
-  width: 450px;
+  width: 944px;
+  margin-bottom: 300;
   height: auto;
   background-color: darkcyan;
 }
@@ -253,12 +255,10 @@ h3 {
 
 #result {
   border: solid;
-    background-color: darkcyan;
-    margin-left: 800;
-    /* padding:3%;
-    margin:3%; */
+  background-color: whitesmoke;
     line-height: 2;
     font-size: xx-large;
+    margin-right: 500;
 }
 
 .result{
@@ -266,6 +266,7 @@ h3 {
   border-radius: 10px;
   color:red;
   width:90%;
+  margin-right: 500;
 }
 
 .btn{
@@ -278,4 +279,10 @@ h3 {
 
 h4{
   font-size: 1.5em;
+}
+
+#highscore {
+  border-style: solid;
+  border-width: thick;
+  border-radius: 40px;
 }
