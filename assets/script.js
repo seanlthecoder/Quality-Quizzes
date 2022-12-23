@@ -110,10 +110,10 @@ var userQuestionsDB = [
   {
     question: "Which of the following is correct about features of JavaScript?",
     choices: [
-      "A - JavaScript is complementary to and integrated with HTML.",
-      "B - JavaScript is an open and cross-platform.",
-      "C - Both of the above.",
-      "D - All of the above.",
+      "A: JavaScript is complementary to and integrated with HTML.",
+      "B: JavaScript is an open and cross-platform.",
+      "C: Both A and B.",
+      "D: None of these are correct regarding Javascript.",
     ],
     answer: 2,
   },
@@ -217,6 +217,7 @@ mainQuiz.style.display = "none";
 
 // display the current question and the answer choices for each question
 function userQuestions() {
+  resultElement.textContent = ""
   console.log("UserQuestion Test");
   question.textContent = userQuestionsDB[questionNumber].question;
   optionOne.textContent = userQuestionsDB[questionNumber].choices[0];
@@ -254,7 +255,7 @@ function checkAnswer() {
   }
   if (questionNumber < userQuestionsDB.length - 1) {
     questionNumber++;
-    userQuestions();
+    setTimeout(userQuestions, 1000);
   } else {
     displayScore();
   }
