@@ -48,4 +48,4 @@ Using javascripts concepts like event listeners, arrays, functions and variables
 piece together code that effectively meets the acceptance criteria.
 
 
-image.png
+![image](https://user-images.githubusercontent.com/111099189/209350493-345fa77e-4481-48c5-b1c8-3f3e480853b0.png)
