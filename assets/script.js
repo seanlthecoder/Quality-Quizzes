@@ -330,29 +330,3 @@ function restart() {
   startQuiz();
 }
 
-// commented these out because I already have them created.
-
-// var questionsElement = document.createElement("h3");
-// var firstAnswer = document.createElement("button");
-// var secondAnswer = document.createElement("button");
-// var thirdAnswer = document.createElement("button");
-// var fourthAnswer = document.createElement("button");
-
-// function startQuiz() {
-//   homeSection.classList.add("hidden");
-//   questionsElement.setAttribute("id", "questions");
-//   firstAnswer.setAttribute("id", "first-answer");
-//   secondAnswer.setAttribute("id", "second-answer");
-//   thirdAnswer.setAttribute("id", "third-answer");
-//   fourthAnswer.setAttribute("id", "fourth-answer");
-//   questionsElement.textContent = "Question 1";
-//   firstAnswer.textContent = "AnswerContent1";
-//   secondAnswer.textContent = "AnswerContent2";
-//   thirdAnswer.textContent = "AnswerContent3";
-//   fourthAnswer.textContent = "AnswerContent4";
-//   mainQuiz.appendChild(questionsElement);
-//   mainQuiz.appendChild(firstAnswer);
-//   mainQuiz.appendChild(secondAnswer);
-//   mainQuiz.appendChild(thirdAnswer);
-//   mainQuiz.appendChild(fourthAnswer);
-// }
