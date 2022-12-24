@@ -255,7 +255,7 @@ function checkAnswer() {
   }
   if (questionNumber < userQuestionsDB.length - 1) {
     questionNumber++;
-    setTimeout(userQuestions, 2500);
+    setTimeout(userQuestions, 3500);
   } else {
     displayScore();
   }
