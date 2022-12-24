@@ -21,7 +21,7 @@ header {
   margin-left: 200px;
   margin-top: 50px;
   border-radius: 50px;
-  background-color: darkgray;
+      background-color: darkgray;
 }
 
 #start1 {
@@ -58,6 +58,7 @@ header {
 
 #main {
   display: flex;
+  margin: auto;
   align-items: center;
 }
 
@@ -160,9 +161,7 @@ h2 {
   color: darkcyan;
   margin-bottom: 10px;
   width: 71%;
-  height: 100px;
   font-size: 50px;
-  background-color: black;
   border-radius: 25px;
   align-items: center;
   padding-top: 10px;
@@ -201,7 +200,6 @@ h2 {
   margin-top: 200;
   width: 90px;
   justify-content: space-between;
-  margin-left: 400px;
   font-size: 40px;
   color: goldenrod;
 } 
