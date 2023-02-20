@@ -14,24 +14,33 @@
 
 ## Acceptance Criteria
 
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and score
+GIVEN I am taking a code quiz <br />
+WHEN I click the start button <br />
+THEN a timer starts and I am presented with a question <br />
+WHEN I answer a question <br />
+THEN I am presented with another question <br />
+WHEN I answer a question incorrectly <br />
+THEN time is subtracted from the clock <br />
+WHEN all questions are answered or the timer reaches 0 <br />
+THEN the game is over <br />
+WHEN the game is over <br />
+THEN I can save my initials and score <br />
+
+
+
 ## Authors
 
 - [@seanlthecoder](https://github.com/seanlthecoder)
 
+
+
 ## Table of Contents
 * [Technologies](#technologies)
 * [basic info](#basic-info)
+
+
+
+
 ## Technologies
 
 This code was refactored using:
@@ -40,6 +49,10 @@ This code was refactored using:
 - HTML
 - Javascript
 - CSS
+
+
+
+
 ## basic info
 
 Utilizing primarily Javascript along with HTML and CSS, I was able to construct an effective and responsive quiz app.
